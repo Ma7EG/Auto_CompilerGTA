@@ -1,0 +1,9 @@
+<meta>
+    <info author="Ma7.EG" name="Automatic_Compiler" type="script" version="1.0" />
+    <min_mta_version server="1.6" client="1.5.9" />
+    <script src="compilerC.lua" type="client" />
+    <script src="compilerS.lua" type="server" />
+    <file src="index.html" />
+    <file src="styles.css" />
+    <file src="script.js" />
+</meta>
