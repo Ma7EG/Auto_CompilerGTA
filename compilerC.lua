@@ -1,16 +1,4 @@
-------------------------------------------------------------------------------------------------
---
---  PROJECT:         Trident Sky Company
---  VERSION:         1.0
---  FILE:            compilerC.lua
---  PURPOSE:         Automatic Compilation Tool
---  DEVELOPERS:      [BranD] - Lead Developer
---  CONTACT:         tridentskycompany@gmail.com | Discord: BrandSilva
---  COPYRIGHT:       © 2025 Brando Silva All rights reserved.
---                   This software is protected by copyright laws.
---                   Unauthorized distribution or modification is strictly prohibited.
---
-------------------------------------------------------------------------------------------------
+
 
 local compilationBrowser = nil
 local compilationGui = nil
