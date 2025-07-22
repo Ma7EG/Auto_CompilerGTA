@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatic Compilation Tool</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main-panel">
+        <div class="panel-header">
+            <div class="panel-title-main" data-lang="main-title">🛠️ Automatic Compilation Tool</div>
+            <div class="header-controls">
+                <div class="language-selector">
+                    <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
+                    <button class="lang-btn" onclick="setLanguage('es')">ES</button>
+                    <button class="lang-btn" onclick="setLanguage('pt')">PT</button>
+                </div>
+                <div class="window-controls">
+                    <button class="window-btn minimize-btn" onclick="minimizePanel()" data-lang="minimize-tooltip" title="Minimize">−</button>
+                    <button class="window-btn close-btn" onclick="closePanel()" data-lang="close-tooltip" title="Close">×</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="left-panel">
+                <div class="panel-header-section">
+                    <div class="panel-title" data-lang="scripts-list-title">📋 Scripts List</div>
+                    <button class="refresh-btn" onclick="refreshScriptsList()" data-lang="refresh-btn">🔄 Refresh List</button>
+                </div>
+                <div class="search-box">
+                    <input type="text" class="search-input" data-lang="search-placeholder" placeholder="Search scripts..." id="searchInput" oninput="filterScripts()">
+                </div>
+                <div class="gridlist">
+                    <div class="gridlist-header scripts-header">
+                        <div class="gridlist-header-cell">
+                            <input type="checkbox" class="checkbox-script" id="selectAll" onchange="toggleSelectAll()">
+                        </div>
+                        <div class="gridlist-header-cell" data-lang="script-name-header">Script Name</div>
+                        <div class="gridlist-header-cell" data-lang="protection-header">cache=false</div>
+                        <div class="gridlist-header-cell" data-lang="status-header">Status</div>
+                    </div>
+                    <div class="gridlist-body" id="scriptsGridlist">
+                        <div class="no-selection" data-lang="no-selection">Select a script from the list</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-panel">
+                <div class="files-panel">
+                    <div class="panel-title" data-lang="files-title">📁 Script Files</div>
+                    <div class="gridlist">
+                        <div class="gridlist-header files-header">
+                            <div class="gridlist-header-cell" data-lang="file-header">File</div>
+                            <div class="gridlist-header-cell" data-lang="type-header">Type</div>
+                        </div>
+                        <div class="gridlist-body" id="filesGridlist">
+                            <div class="no-selection" data-lang="no-selection">Select a script from the list</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="controls-panel">
+                    <div class="panel-title" data-lang="compilation-options-title">⚙️ Compilation Options</div>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="compileClient" checked>
+                            <label for="compileClient" class="checkbox-label" data-lang="compile-client">Compile client-files only</label>
+                        </div>
+                        
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="compileServer">
+                            <label for="compileServer" class="checkbox-label" data-lang="compile-server">Compile server-files only</label>
+                        </div>
+                        
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="enableProtection">
+                            <label for="enableProtection" class="checkbox-label">
+                                <span data-lang="enable-protection">Activate cache=false protection</span>
+                                <div class="warning-text" data-lang="protection-warning">Warning: the script will be loaded into RAM memory making the download take longer</div>
+                            </label>
+                        </div>
+                        
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="restartAfterCompile">
+                            <label for="restartAfterCompile" class="checkbox-label" data-lang="restart-after-compile">Restart script after compilation</label>
+                        </div>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <button class="btn btn-success" onclick="showConfirmation('compileSelected')" data-lang="compile-selected-btn">Compile Selected</button>
+                        <button class="btn btn-warning" onclick="showConfirmation('compileAll')" data-lang="compile-all-btn">Compile All Server</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright" data-lang="copyright">
+            © 2025 • Creator: BranD • Company: Trident Sky Network
+        </div>
+    </div>
+
+    <div class="confirmation-modal" id="confirmationModal">
+        <div class="modal-content">
+            <div class="modal-title">⚠️ Confirmation</div>
+            <div class="modal-message" id="modalMessage"></div>
+            <div class="modal-buttons">
+                <button class="btn-modal btn-confirm" onclick="confirmAction()">Accept</button>
+                <button class="btn-modal btn-cancel" onclick="closeModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
